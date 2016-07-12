@@ -1,0 +1,17 @@
+.profile {
+  background-color: color($colors, backdrop);
+}
+
+.profile img.logo {
+  width: 192px;
+  height: 192px;
+  margin: auto;
+}
+
+.app-name {
+  color: color($colors, primary);
+}
+
+.slogan {
+  color: color($colors, secondary);
+}

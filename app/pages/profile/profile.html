@@ -1,0 +1,55 @@
+<ion-header>
+    <dose-amigos-toolbar [title]="title"></dose-amigos-toolbar>
+</ion-header>
+
+<ion-content padding class="profile" *ngIf="!auth.authenticated()">
+
+    <ion-card>
+        <img class="logo" src="../../images/logo.png" />
+
+        <ion-card-content>
+            <ion-card-title class="app-name">
+                Dose Amigos
+            </ion-card-title>
+            <p class="slogan">
+                Don't miss a dose with help from your amigos.
+            </p>
+        </ion-card-content>
+
+        <ion-item>
+            <button item-right (click)="auth.login()">
+                Login
+            </button>
+        </ion-item>
+    </ion-card>
+
+</ion-content>
+
+<ion-content padding class="profile" *ngIf="auth.authenticated()">
+
+    <ion-card>
+
+        <ion-item *ngIf="auth.user">
+            <ion-avatar item-left>
+                <img [src]="auth.user.picture">
+            </ion-avatar>
+            <h2>
+                {{auth.user.nickname}}
+            </h2>
+            <p>
+                {{auth.user.email}}
+            </p>
+        </ion-item>
+
+        <ion-item>
+            <button item-right (click)="cancel()">
+                Cancel
+            </button>
+            <button item-right (click)="auth.logout()">
+                Logout
+            </button>
+        </ion-item>
+
+    </ion-card>
+
+</ion-content>
